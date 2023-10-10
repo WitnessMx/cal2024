@@ -1,10 +1,10 @@
-const CALIBRACIONPWA = "CALIBRACION2024@v1-cache";
+const CALIBRACIONPWA = "CALIBRACION2024@v2-cache";
 const assets = [
   "/cal2024/",
   "/cal2024/index.html",
-  "/cal2024/index-EXT.html",
-  "/cal2024/index-GO.html",
-  "/cal2024/index-INS.html",
+  "/cal2024/src/index-EXT.html",
+  "/cal2024/src/index-GO.html",
+  "/cal2024/src/index-INS.html",
   "/cal2024/src/images/Layout_010221_01.png.webp",
   "/cal2024/src/script/captura.js",
   "/cal2024/src/script/generar-tablaGO.js",
