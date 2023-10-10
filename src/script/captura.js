@@ -88,7 +88,7 @@ var CAPTURAR_NUEVA_IMAGEN=false;
                 });
 
                 if (dispositivosDeVideo.length > 0) {
-                    mostrarStream(dispositivosDeVideo[0].deviceId);//<--- cambiar a 1 para Movil camara trasera
+                    mostrarStream(dispositivosDeVideo[1].deviceId);//<--- cambiar a 1 para Movil camara trasera
                 }
             });
             const mostrarStream=idDispositivo=>{
