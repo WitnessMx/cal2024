@@ -15,7 +15,7 @@ if (L.Util.isArray(x)) {    // When doing xy([x, y]);
 return yx(y, x);  // When doing xy(x, y);
 };
 
-var src= 'src/images/Layout_010221_01.png.webp';
+var src= 'images/Layout_010221_01.png.webp';
 
 var bounds = [xy(0, 0), xy(1115, 1723)];
 var opacidad=0.3;
