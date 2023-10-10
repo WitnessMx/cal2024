@@ -1,0 +1,107 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="manifest.json">
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="src/icon/icon-cal.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#d9d2e9">
+    <meta name="theme-color" content="#d9d2e9">
+    <title>CALIBRACIONES 2024</title>
+    <link rel="stylesheet" href="src/style/syle-2024.css">
+    <style>
+        body{
+            margin-top: 0px;
+
+        }
+        .Testandar{
+            width: 90%;
+            margin-left: 5%;
+            
+        }
+        .inicial{
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <table class="Testandar inicial">
+        <tbody>
+            <tr class="ColorDefault">
+                <td>
+                    <Table class="Tin">
+                        <thead>
+                            <th>CALIBRACIONES 2024</th>
+                        </thead>
+                    </Table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="Testandar inicial" >
+        <tbody>
+            <tr class="ColorEstandar">
+                <td >
+                    <table class="Tin">
+                        <tbody>
+                            <tr>
+                                <td class="ColorDefault">
+                                    <a href="index-GO.html">
+                                    <input class="inputEstandar" type="button" id="boton-menu" value="CALIBRAR GONOGO"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="Testandar">
+        <tbody>
+            <tr class="ColorEstandar">
+                <td >
+                    <table class="Tin">
+                        <tbody>
+                            <tr>
+                                <td class="ColorDefault">
+                                    <a href="index-INS.html">
+                                   <input class="inputEstandar" type="button" value="CALIBRAR INSTRUMENTO"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="Testandar">
+        <tbody>
+            <tr class="ColorEstandar">
+                <td >
+                    <table class="Tin">
+                        <tbody>
+                            <tr>
+                                <td class="ColorDefault">
+                                    <a href="index-EXT.html">
+                                   <input class="inputEstandar" type="button" value="CALIBRAR EXTERNO"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function() {
+                navigator.serviceWorker
+                .register("/cal2024/sw.js")
+                .then(res => console.log("sw registrado"))
+                .catch(err => console.log("sw not registrado", err));
+            });
+        }
+    </script>
+</body>
+</html>

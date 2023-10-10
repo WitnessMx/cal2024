@@ -1,0 +1,521 @@
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CALIBRACION GO NOGO</title>
+    <link rel="stylesheet" href="src/style/leaflet.css"/>
+    <link rel="stylesheet" href="src/style/syle-2024.css">
+    <script src="src/script/leaflet.js"></script>
+    <script src="src/script/leer-reporte-go.js"></script>
+    <script src="src/script/jszip.js"></script>
+    <script src="src/script/xlsx.js"></script>
+    <script src="src/UBICACIONES.json"></script>
+    
+</head>
+<body>
+    <div class="contenedor"    >
+        <table class="Testandar titulo">
+            <tbody>
+                <tr class="ColorEstandar titulo">
+                    <td class="ColorDefault"><a href="index.html"><input type="button" class="botonEstandar" name="button-atras" value="Atras" ></a></td>
+                    <td><div class="div-titulo">CALIBRACION GO-NOGO</div></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <Table class="Tin">
+                            <thead>
+                                <th>Seleccionar Archivo</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                            <!----> <td><input type="file" name="files[]" id="cargar_archivo" class="inputEstandar" ></td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar" >
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td >
+                       <table class="Tin">
+                            <thead>
+                                <th colspan="2" >Ubicación</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                   <td colspan="2"><div id="mapa"></div></td>
+                                </tr>
+                                <tr class="ColorDefault">                                
+                                    <td><label class="labelEstandar">Coordenada X</label><br>
+                                        <input class="inputEstandar" type="number" id="x" readonly></td><!---->
+                                    <td><label class="labelEstandar">Coordenada Y</label><br>
+                                        <input class="inputEstandar" type="number" id="y" readonly></td><!---->                                
+                                </tr>
+                            </tbody>
+                       </table> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar" >
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <table class="Tin">
+                            <thead>
+                                <th >Imagen de Gage</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar" id="ruta_label"></label></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><img  id="img_gages"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar" >
+                    <td >
+                        <table class="Tin">
+                            <thead>
+                                <th colspan="2">Descripción del Instrumento</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                    <td><label class="labelEstandar">Id Gage</label><br>
+                                        <input class="inputEstandar" type="text" id="idGage"></td><!---->
+                                    <td ><label class="labelEstandar">Descripción</label><br>
+                                        <input class="inputEstandar" type="text" id="DesGage"></td><!---->
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><label class="labelEstandar">Tipo de Gage</label><br>
+                                        <input class="inputEstandar" type="text" id="TipoGage"></td><!---->
+                                    <td ><label class="labelEstandar">Localizacion</label><br>
+                                        <input class="inputEstandar" type="text" id="LocGage"></td><!---->
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table class="Tin">
+                                            <tbody>
+                                                <tr class="ColorDefault">
+                                                    <td><label class="labelEstandar">Modelo</label><br>
+                                                        <input class="inputEstandar" type="text" id="ModGage"></td><!---->
+                                                        <td><label class="labelEstandar">N° Serie</label><br>
+                                                            <input class="inputEstandar" type="text" id="SerGage"></td><!---->
+                                                        <td><label class="labelEstandar">Fabricante</label><br>
+                                                            <input class="inputEstandar" type="text" id="FabGage"></td><!---->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td >
+                       <table class="Tin">
+                        <thead>
+                            <th colspan="3">Resultados de Calibracion</th>
+                        </thead>
+                        <tbody>
+                           
+                            <tr></tr>
+                            <tr class="ColorDefault">
+                                <td><label class="labelEstandar">Fecha de Calibracion</label><br>
+                                    <input class="inputEstandar" type="date" id="FechaCal"></td><!---->
+                                <td ><label class="labelEstandar">Frecuencia</label><br>
+                                    <input class="inputEstandar" type="text" id="FrecGage"></td><!---->
+                                <td><label class="labelEstandar">Ultima Calibracion</label><br>
+                                    <input class="inputEstandar" type="text" id="UltimaCal"></td><!---->
+                            </tr>
+                            <tr>
+                                <td   colspan="3" >
+                                    <table class="Tin">
+                                        
+                                            <tr class="ColorDefault" >
+                                                <td ><label class="labelEstandar">Metodo de Calibracion</label><br>
+                                                    <input class="inputEstandar" type="text" id="MetodCal"></td><!---->
+                                                    <td ><label class="labelEstandar">Metodo Utilizado</label><br>
+                                                        <input class="inputEstandar" type="text" id="MetodUtil"></td><!---->
+                                            </tr>
+                                        
+                                    </table>
+    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td   colspan="3" >
+                                    <table class="Tin">
+                                        
+                                            <tr class="ColorDefault" >
+                                                <td ><label class="labelEstandar">Formato de Dimensiones</label><br>
+                                                    <input class="inputEstandar" type="text" id="FRM"></td><!---->
+                                                <td ><label class="labelEstandar">Revision</label><br>
+                                                    <input class="inputEstandar" type="text" id="Rev"></td><!---->
+                                            </tr>
+                                        
+                                    </table>
+    
+                                </td>
+                            </tr>
+                        </tbody>
+                       </table> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <table class="Tin">
+                            <thead>
+                                <th colspan="2" >Estandar Utilizado</th>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">Id</label><br>
+                                        <input class="inputEstandar" type="text" id="E1Id"></td><!---->
+                                    <td ><label class="labelEstandar">Descripción</label><br>
+                                        <input class="inputEstandar" type="text" id="E1Nombre"></td><!---->
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">Fecha de Calibracón</label><br>
+                                        <input class="inputEstandar" type="date" id="E1Fecha"></td><!---->
+                                    <td ><label class="labelEstandar">Fecha de Vencimiento</label><br>
+                                        <input class="inputEstandar" type="date" id="E1Vence"></td><!---->
+                                </tr>
+                                <tr></tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">Id</label><br>
+                                        <input class="inputEstandar" type="text" id="E2Id"></td><!---->
+                                    <td ><label class="labelEstandar">Descripción</label><br>
+                                        <input class="inputEstandar" type="text" id="E2Nombre"></td><!---->
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">Fecha de Calibracón</label><br>
+                                        <input class="inputEstandar" type="date" id="E2Fecha"></td><!---->
+                                    <td ><label class="labelEstandar">Fecha de Vencimiento</label><br>
+                                        <input class="inputEstandar" type="date" id="E2Vence"></td><!---->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <table class="Tin">
+                            <thead>
+                                <th colspan="2">Condiciones Ambientales</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">Temperatura (°C)</label><br>
+                                        <input class="inputEstandar" type="number" id="Temp"></td><!---->
+                                    <td ><label class="labelEstandar">Humedad (%HR)</label><br>
+                                        <input class="inputEstandar" type="number" id="Hr"></td><!---->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+    
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <table class="Tin">
+                            <thead>
+                                <th colspan="2" >CheckList de Mantenimiento</th>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">1.-¿Se encuentra el Gage fijo de manera correcta / esta en lugar asignado?</label><br>
+                                        <select class="inputEstandar"  name="1m" id="1m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">2.-¿Estan los Clamps alineados correctamente y sin desgaste?</label><br>
+                                        <select class="inputEstandar"  name="2m" id="2m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">3.-¿Se encuentran los Datums identificados y marcados correctamente?</label><br>
+                                        <select class="inputEstandar"  name="3m" id="3m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">4.-¿Las tolerancias se encuentran visibles y completas?</label><br>
+                                        <select class="inputEstandar"  name="4m" id="4m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">5.-¿Las piezas movibles se encuentran sin obstrucciones y </label><br>
+                                        <label class="labelEstandar">sin desgaste alguno?</label><br>
+                                        <select class="inputEstandar"  name="5m" id="5m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">6.-¿Se encuentra el maestro cero en buenas condiciones e incluido</label><br>
+                                        <label class="labelEstandar"> en plano?</label><br>
+                                        <select class="inputEstandar"  name="6m" id="6m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">7.-¿Los orificios para pernos estan sin obstrucciones?</label><br>
+                                        <select class="inputEstandar"  name="7m" id="7m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">8.-¿El instrumento de medición es el correspondiente al gage?</label><br>
+                                        <select class="inputEstandar"  name="8m" id="8m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault" >
+                                    <td style="max-width: 357px;"><label class="labelEstandar">9.-¿Los pasadores deslizantes se mueven libremente y pueden </label><br>
+                                       <label class="labelEstandar">ser bloqueados?</label><br>
+                                        <select class="inputEstandar"  name="9m" id="9m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">10.-¿Se encuentran las instrucciones de uso posteadas en gage?</label><br>
+                                        <select class="inputEstandar"  name="10m" id="10m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">11.-¿Se tiene conocimiento de problemas de seguridad operacional </label><br>
+                                        <label class="labelEstandar"> del gage?</label><br>
+                                        <select class="inputEstandar"  name="11m" id="11m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">12.-¿Estan los detalles del gage resistentes y libres de corrosión?</label><br>
+                                        <select class="inputEstandar"  name="12m" id="12m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">13.-¿Tiene serial identificador como gage propiedad del cliente en base? </label><br>
+                                        <label class="labelEstandar">( placa )</label><br>
+                                        <select class="inputEstandar"  name="13m" id="13m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">14.-¿Estan los puntos de SPC y/o PQC indicados correctamente?</label><br>
+                                        <select class="inputEstandar"  name="14m" id="14m" required>
+                                            <option value="">...</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/A">N/A</option>
+                                        </select></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <thead class="TextoTabla">
+               
+                <th colspan="4">Valores Obtenidos</th>
+                
+            </thead>
+            <tbody class="TextoTabla" id="tablaBodyValores">
+                <tr class="ColorDefault">
+                    <td colspan="4"><input class="inputEstandar" type="button" value="Borrar Datos" name="" id="" onclick="LimparDatosGO()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <table class="Tin">
+                            <thead>
+                                <th colspan="2">Capturar Imagen</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                    
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><input class="inputEstandar" type="button" id="boton-play" value="Ver Imagen"></td>
+                                    <td><input class="inputEstandar" type="button" id="boton-cancelar-play" value="Cancelar"></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                   <td colspan="2"><select class="inputEstandar" name="seleccionarDispositivo" id="seleccionarDispositivo"></select></td> 
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td colspan="2"><video id="video"></video></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><canvas id="canvas" class="canvas" ></canvas></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td>
+                                        <input class="inputEstandar" type="button" id="boton-pause" value="Tomar Captura">
+                                    </td><!---->
+                                    <td><input class="inputEstandar" type="button" id="boton-cancelar-pause" value="Cancelar"></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><label class="labelEstandar">Id Gage</label><br>
+                                        <input class="inputEstandar" type="text" id="idGage1"></td><!---->
+                                    <td><input class="inputEstandar" type="button" id="boton-guardar" value="Guardar Imagen"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td >
+                        <table class="Tin">
+                            <tbody>
+                                <tr>
+                                    <td class="ColorDefault">
+                                       <input class="inputEstandar" type="button" value="Guardar" onclick="ExportaraCSV2()"> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="estado"></div>
+    <script src="src/script/generar-tablaGO.js"></script>
+    <script src="src/script/mapa.js"></script>
+    <script>
+        
+        document.getElementById('cargar_archivo').addEventListener('change', Mostrargonogo, false);{
+       
+        };
+
+        function Mostrargonogo(evt) {
+            var files = evt.target.files; 
+            var xl2json = new ExcelToJSON2();
+            xl2json.parseExcel(files[0]);
+        };
+
+
+        function DescargarCSV(csv,NombreArchivo){
+  				var ArchivoCSV;
+  				var LinkDescarga;
+  				var csvString = 'ı,ü,ü,ğ,ş,#Hashtag,ä,ö';
+  				var universalBOM = "\uFEFF";
+  				var a = window.document.createElement('a');
+  				a.setAttribute('href', 'data:text/csv; charset=utf-8,' + encodeURIComponent(universalBOM+csv));
+  				a.setAttribute('download', NombreArchivo);
+  				window.document.body.appendChild(a);
+  				a.click();
+		    };
+
+            function ExportaraCSV2(){
+  				var NombreArchivo="";
+  				var f=new Date();
+  				var dd=(f.getDate()<10 ? '0':'') + f.getDate();
+  				var mm=((f.getMonth()+1)<10 ? '0':'')+(f.getMonth()+1);
+  				var yy=(f.getFullYear().toString().substr(-2));
+  				var FechaHoy =dd +""+ mm +""+ yy;
+  				var csv=[];
+                var captura=document.querySelectorAll("input,select,textarea");
+                var DatosExportar=[];
+                NombreArchivo=captura[4].value + " CAL "+ FechaHoy +".csv"
+                for(var i=0;i<captura.length;i++){
+                    DatosExportar.push(captura[i].id +','+captura[i].value);
+                    
+                };
+                csv.push(DatosExportar.join("\r\n"));
+                 DescargarCSV(csv.join("\r\n"),NombreArchivo);
+			};
+    </script>
+    <script src="src/script/captura.js"></script>
+    
+</body>
+</html>

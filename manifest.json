@@ -1,0 +1,16 @@
+{
+  "name": "CALIBRACION2024",
+  "short_name": "CAL2024",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#d9d2e9",
+  "theme_color": "#d9d2e9",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/cal2024/src/style/images/icon-cal.png",
+      "type": "image/png",
+      "sizes": "128X128"
+    }
+  ]
+}
