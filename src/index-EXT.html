@@ -421,14 +421,7 @@
                 csv.push(DatosExportar.join("\r\n"));
                  DescargarCSV(csv.join("\r\n"),NombreArchivo);
 			};
-	    if ("serviceWorker" in navigator) {
-            window.addEventListener("load", function() {
-                navigator.serviceWorker
-                .register("/cal2024/sw.js")
-                .then(res => console.log("sw registrado"))
-                .catch(err => console.log("sw not registrado", err));
-            });
-        }
+	    
     </script>
     <script src="src/script/captura.js"></script>
 </body>
