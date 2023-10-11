@@ -8,7 +8,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/cal2024/src/style/images/icon-cal.png",
+      "src": "/cal2024/src/style/images/sol.png",
       "type": "image/png",
       "sizes": "128x128"
     }
