@@ -18,6 +18,7 @@ const assets = [
   "/cal2024/src/script/mapa.js",
   "/cal2024/src/script/xlsx.js",
   "/cal2024/src/style/images/icon-cal.png",
+  "/cal2024/src/style/images/sol.png",
   "/cal2024/src/style/images/layers-2x.png",
   "/cal2024/src/style/images/layers.png",
   "/cal2024/src/style/images/loader.gif",
