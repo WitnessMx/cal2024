@@ -1,4 +1,4 @@
-const CALIBRACIONPWA = "CALIBRACION2024@v2-cache";
+const CALIBRACIONPWA = "CAL2024@v3-cache";
 const assets = [
   "/cal2024/",
   "/cal2024/index.html",
@@ -26,7 +26,7 @@ const assets = [
   "/cal2024/src/style/images/search-icon.png",
   "/cal2024/src/style/leaflet.css",
   "/cal2024/src/style/style-2024.css",
-  "/cal2024/src/UBICACIONES.json",
+  "/cal2024/src/UBICACIONES.json"
 ];
 
 self.addEventListener("install", installEvent => {
