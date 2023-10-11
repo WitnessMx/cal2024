@@ -1,4 +1,4 @@
-const CALIBRACIONPWA = "CAL2024@v3-cache";
+const CALIBRACIONPWA = "CAL2024@v4-cache";
 const assets = [
   "/cal2024/",
   "/cal2024/index.html",
@@ -18,6 +18,7 @@ const assets = [
   "/cal2024/src/script/mapa.js",
   "/cal2024/src/script/xlsx.js",
   "/cal2024/src/style/images/icon-cal24.png",
+  "/cal2024/src/style/images/back.png",
   "/cal2024/src/style/images/layers-2x.png",
   "/cal2024/src/style/images/layers.png",
   "/cal2024/src/style/images/loader.gif",
