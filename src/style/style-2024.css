@@ -164,5 +164,11 @@
         .div-titulo{
             color:var(--text-lbl-val-color);
         }
+       .back{
+        width: 40px;
+       }
+       .back-td{
+        width: 10px;
+      }
   
   
