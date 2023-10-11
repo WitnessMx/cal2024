@@ -1,4 +1,4 @@
-const CALIBRACIONPWA = "CAL2024@v4-cache";
+const CALIBRACIONPWA = "CAL2024@v5-cache";
 const assets = [
   "/cal2024/",
   "/cal2024/index.html",
