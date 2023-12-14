@@ -15,7 +15,7 @@ var ExcelToJSON2 = function() {
             var JsonValores=JSON.stringify(valores1);
             var VALORES=JSON.parse(JsonValores);
 
-            var mtto1=workbook.Sheets["RMG"];
+            var mtto1=workbook.Sheets["Checklist"];
             var Jsonmtto1=JSON.stringify(mtto1);
             var MTTO1=JSON.parse(Jsonmtto1);
 
