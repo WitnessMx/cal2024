@@ -43,8 +43,8 @@ var ExcelToJSON2 = function() {
             document.getElementById('MetodCal').value=DATOS.F21.w;
             document.getElementById('MetodUtil').value=DATOS.F23.w;
             //FRM
-            document.getElementById('FRM').value=MTTO1.E7.w;
-            document.getElementById('Rev').value=MTTO1.G7.w;
+            document.getElementById('FRM').value=MTTO1.D6.w;
+            document.getElementById('Rev').value=MTTO1.E6.w;
             //Estandar1
             document.getElementById('E1Nombre').value=DATOS.D33.w;
             document.getElementById('E1Id').value=DATOS.B33.w;
